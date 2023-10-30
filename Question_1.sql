@@ -10,8 +10,8 @@ SELECT
 	,CASE WHEN E.event_end_time > S.shift_end_time THEN S.shift_end_time
 		ELSE E.event_end_time
 	END AS event_end_time
-FROM events E
-JOIN shifts S
+FROM event E
+JOIN shift S
 ON E.device_id = S.device_id
 AND E.event_start_time < S.shift_end_time
 AND E.event_end_time > S.shift_start_time;
